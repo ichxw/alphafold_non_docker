@@ -130,9 +130,9 @@ done
 find "$mmcif_download_dir" -type d -empty -delete
 
 # Download Uniref30 database
-echo "Downloading Uniref30 database"
-uniref30_filename="UniRef30_2021_03.tar.gz"
-wget -P "$uniref30" "https://storage.googleapis.com/alphafold-databases/v2.3/${uniref30_filename}"
+echo "Downloading Uniref30 database (upgraded)"
+uniref30_filename="UniRef30_2023_02_hhsuite.tar.gz"
+wget -P "$uniref30" "https://gwdu111.gwdg.de/~compbiol/uniclust/2023_02/${uniref30_filename}"
 tar --extract --verbose --file="$uniref30/$uniref30_filename" --directory="$uniref30"
 rm "$uniref30/$uniref30_filename"
 

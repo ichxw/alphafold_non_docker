@@ -10,7 +10,7 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && ba
 ### **Create a new conda environment and update**
 
 ``` bash
-conda create --name alphafold python==3.8
+conda create --name alphafold python==3.9
 conda update -n base conda
 ```
 
@@ -25,7 +25,7 @@ conda activate alphafold
 - Change `cudatoolkit==11.2.2` version if it is not supported in your system
 
 ``` bash
-conda install -y -c conda-forge openmm==7.5.1 cudatoolkit==11.2.2 pdbfixer
+conda install -y -c conda-forge openmm cudatoolkit==11.2.2 pdbfixer
 conda install -y -c bioconda hmmer hhsuite==3.3.0 kalign2
 ```
 
@@ -37,10 +37,10 @@ pip install absl-py==1.0.0 biopython==1.79 chex==0.0.7 dm-haiku==0.0.9 dm-tree==
 pip install --upgrade --no-cache-dir jax==0.3.25 jaxlib==0.3.25+cuda11.cudnn805 -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 ```
 
-### **Download alphafold release v2.3.1**
+### **Download alphafold release v2.3.2**
 
 ``` bash
-wget https://github.com/deepmind/alphafold/archive/refs/tags/v2.3.1.tar.gz && tar -xzf v2.3.1.tar.gz && export alphafold_path="$(pwd)/alphafold-2.3.1"
+wget https://github.com/deepmind/alphafold/archive/refs/tags/v2.3.2.tar.gz && tar -xzf v2.3.2.tar.gz && export alphafold_path="$(pwd)/alphafold-2.3.2"
 ```
 
 ### **Download chemical properties to the common folder**
@@ -84,8 +84,8 @@ bash download_db.sh -d </home/johndoe/alphafold_data>
 bash download_db.sh -d </home/johndoe/alphafold_data> -m reduced_dbs
 ```
 
-## **Running alphafold (v2.3.1)**
-- Use this [bash script](https://github.com/kalininalab/alphafold_non_docker/blob/main/run_alphafold.sh)
+## **Running alphafold (v2.3.2)**
+- Use this [bash script](https://github.com/ichxw/alphafold_non_docker/blob/main/run_alphafold.sh)
 
 ``` bash
 Usage: run_alphafold.sh <OPTIONS>
@@ -193,7 +193,7 @@ Say we have a homomer from a prokaryote with 3 copies of the same sequence
 Then run the following command:
 
 ```bash
-bash run_alphafold.sh -d alphafold_data/ -o dummy_test/ -f homomer.fasta -t 2021-11-01 -m multimer
+bash run_alphafold.sh -d alphafold_data/ -o dummy_test/ -f homomer.fasta -t 2023-11-01 -m multimer
 ```
 
 #### **Folding a heteromer**
@@ -217,12 +217,12 @@ Say we have a heteromer A2B3 of unknown origin, i.e. with 2 copies of
 Then run the following command:
 
 ```bash
-bash run_alphafold.sh -d alphafold_data/ -o dummy_test/ -f heteromer.fasta -t 2021-11-01 -m multimer
+bash run_alphafold.sh -d alphafold_data/ -o dummy_test/ -f heteromer.fasta -t 2023-11-01 -m multimer
 ```
 
 ## API changes
 
-### **API changes between v2.2.0 and v2.3.1**
+### **API changes between v2.2.0 and v2.3.2**
 - AF2 parameters link and database download links have been updated.
 - Updated package requirements
 

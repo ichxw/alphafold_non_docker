@@ -90,10 +90,6 @@ if [[ "$gpu_devices" == "" ]] ; then
     gpu_devices=0
 fi
 
-if [[ "$run_relax" == "" ]] ; then
-    run_relax="true"
-fi
-
 if [[ "$enable_gpu_relax" == "" ]] ; then
     enable_gpu_relax="true"
 fi
@@ -167,7 +163,7 @@ uniprot_database_path="$data_dir/uniprot/uniprot.fasta"
 mgnify_database_path="$data_dir/mgnify/mgy_clusters_2022_05.fa"
 bfd_database_path="$data_dir/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt"
 small_bfd_database_path="$data_dir/small_bfd/bfd-first_non_consensus_sequences.fasta"
-uniref30_database_path="$data_dir/uniref30/UniRef30_2021_03"
+uniref30_database_path="$data_dir/uniref30/UniRef30_2023_02"
 pdb70_database_path="$data_dir/pdb70/pdb70"
 pdb_seqres_database_path="$data_dir/pdb_seqres/pdb_seqres.txt"
 template_mmcif_dir="$data_dir/pdb_mmcif/mmcif_files"
@@ -179,7 +175,7 @@ hhsearch_binary_path=$(which hhsearch)
 jackhmmer_binary_path=$(which jackhmmer)
 kalign_binary_path=$(which kalign)
 
-command_args="--fasta_paths=$fasta_path --output_dir=$output_dir --max_template_date=$max_template_date --db_preset=$db_preset --model_preset=$model_preset --benchmark=$benchmark --use_precomputed_msas=$use_precomputed_msas --num_multimer_predictions_per_model=$num_multimer_predictions_per_model --run_relax=$run_relax --use_gpu_relax=$use_gpu_relax --logtostderr"
+command_args="--fasta_paths=$fasta_path --output_dir=$output_dir --max_template_date=$max_template_date --db_preset=$db_preset --model_preset=$model_preset --benchmark=$benchmark --use_precomputed_msas=$use_precomputed_msas --num_multimer_predictions_per_model=$num_multimer_predictions_per_model --use_gpu_relax=$use_gpu_relax --logtostderr"
 
 database_paths="--uniref90_database_path=$uniref90_database_path --mgnify_database_path=$mgnify_database_path --data_dir=$data_dir --template_mmcif_dir=$template_mmcif_dir --obsolete_pdbs_path=$obsolete_pdbs_path"
 
