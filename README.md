@@ -23,6 +23,7 @@ conda activate alphafold
 ### **Install dependencies**
 
 - Change `cudatoolkit==11.2.2` version if it is not supported in your system
+- Use the latest version of OpenMM to be compatible with v2.3.2
 
 ``` bash
 conda install -y -c conda-forge openmm cudatoolkit==11.2.2 pdbfixer
@@ -54,11 +55,11 @@ wget -q -P $alphafold_path/alphafold/common/ https://git.scicore.unibas.ch/schwe
 ``` bash
 # $alphafold_path variable is set to the alphafold git repo directory (absolute path)
 
-cd ~/anaconda3/envs/alphafold/lib/python3.8/site-packages/ && patch -p0 < $alphafold_path/docker/openmm.patch
+cd ~/anaconda3/envs/alphafold/lib/python3.9/site-packages/ && patch -p0 < $alphafold_path/docker/openmm.patch
 
 # or
 
-cd ~/miniconda3/envs/alphafold/lib/python3.8/site-packages/ && patch -p0 < $alphafold_path/docker/openmm.patch
+cd ~/miniconda3/envs/alphafold/lib/python3.9/site-packages/ && patch -p0 < $alphafold_path/docker/openmm.patch
 ```
 
 ### **Download all databases**
@@ -96,7 +97,6 @@ Required Parameters:
 -t <max_template_date> Maximum template release date to consider (ISO-8601 format - i.e. YYYY-MM-DD). Important if folding historical test sets
 Optional Parameters:
 -g <use_gpu>          Enable NVIDIA runtime to run with GPUs (default: true)
--r <run_relax>        Whether to run the final relaxation step on the predicted models. Turning relax off might result in predictions with distracting stereochemical violations but might help in case you are having issues with the relaxation stage (default: true)
 -e <enable_gpu_relax> Run relax on GPU if GPU is enabled (default: true)
 -n <openmm_threads>   OpenMM threads (default: all available cores)
 -a <gpu_devices>      Comma separated list of devices to pass to 'CUDA_VISIBLE_DEVICES' (default: 0)
