@@ -13,7 +13,6 @@ usage() {
         echo "-t <max_template_date> Maximum template release date to consider (ISO-8601 format - i.e. YYYY-MM-DD). Important if folding historical test sets"
         echo "Optional Parameters:"
         echo "-g <use_gpu>          Enable NVIDIA runtime to run with GPUs (default: true)"
-        echo "-r <run_relax>        Whether to run the final relaxation step on the predicted models. Turning relax off might result in predictions with distracting stereochemical violations but might help in case you are having issues with the relaxation stage (default: true)"
         echo "-e <enable_gpu_relax> Run relax on GPU if GPU is enabled (default: true)"
         echo "-n <openmm_threads>   OpenMM threads (default: all available cores)"
         echo "-a <gpu_devices>      Comma separated list of devices to pass to 'CUDA_VISIBLE_DEVICES' (default: 0)"
@@ -42,9 +41,6 @@ while getopts ":d:o:f:t:g:r:e:n:a:m:c:p:l:b:" i; do
         ;;
         g)
                 use_gpu=$OPTARG
-        ;;
-        r)
-                run_relax=$OPTARG
         ;;
         e)
                 enable_gpu_relax=$OPTARG
